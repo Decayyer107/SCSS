@@ -1,3 +1,91 @@
-body{
-  background: aqua;
+@use 'partials/variables' as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $darkest;
+}
+
+section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  background: $primary-dark;
+  display: flex;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  .logo {
+    height: 64px;
+    position: absolute;
+  }
+
+  nav {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+
+      a {
+        text-decoration: none;
+
+        li {
+          color: $primary-light;
+          list-style: none;
+          font-size: 64px;
+        }
+      }
+    }
+  }
+}
+
+.text {
+  font-family: monospace;
+  color: $primary-light;
+  font-size: 100px;
+  user-select: none;
+  width: 100%;
+  border-right: 5px solid;
+  letter-spacing: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  animation:
+          typing 2s steps(15) forwards,
+          untyping 2s steps(15) 3s forwards,
+          cursor 0.6s step-end infinite;
+  animation-iteration-count: infinite;
+}
+
+@keyframes cursor {
+  50% { border-color: transparent; }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes pause {
+  from { width: 100%; }
+  to { width: 100%; }
+}
+
+@keyframes untyping {
+  from { width: 100%; }
+  to { width: 0%; }
 }
